@@ -1,3 +1,11 @@
+/* #############################
+ *
+ * Author: Johnathon Mc Grory
+ * Date : 22 November 2020
+ * Description : Running App MainActivity page Java Code
+ *
+ * ############################# */
+
 package com.example.runningapp;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,7 +37,7 @@ import android.hardware.SensorManager;
         private Sensor mSensor;
 
         CountUpTimer timer;
-        int minutes, hours, counter = 0;
+        int seconds, minutes, hours, counter = 0;
         TextView tvSecs, tvMinutes, tvHrs;
         MediaPlayer player;
         boolean runInProgress, runPaused, runReset;
@@ -47,7 +55,7 @@ import android.hardware.SensorManager;
             tvSecs = findViewById(R.id.tvSeconds);
             tvMinutes = findViewById(R.id.tvMins);
             tvHrs = findViewById(R.id.tvHours);
-            tvSteps = findViewById(R.id.tvSteps);
+            tvSteps = findViewById(R.id.tvSummarySteps);
 
             //setting booleans to their starting value
             runInProgress = false;
@@ -75,6 +83,7 @@ import android.hardware.SensorManager;
                         timer.cancel();
                         timer.start();
                     }
+                    seconds = second;
                     tvSecs.setText(String.valueOf(second));
                 }
             };
@@ -213,6 +222,7 @@ import android.hardware.SensorManager;
 
         //pass the values
             summary.putExtra("Steps", counter);
+            summary.putExtra("Seconds", seconds);
 
         //starts the new page
             startActivity(summary);

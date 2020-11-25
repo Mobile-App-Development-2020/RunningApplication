@@ -8,6 +8,19 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tvLabelSteps2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#9FA8DA"
+        android:text="Steps : "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvSummarySteps"
+        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.642" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="412dp"
         android:layout_height="74dp"
@@ -18,10 +31,10 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04000002" />
+        app:layout_constraintVertical_bias="0.047" />
 
     <Button
         android:id="@+id/btnStart"
@@ -31,35 +44,22 @@
         android:onClick="doStart"
         android:shadowColor="#000000"
         android:text="Start"
-        app:layout_constraintBottom_toTopOf="@+id/btnStop"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnShowSummary"
+        app:layout_constraintEnd_toStartOf="@+id/btnStop"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSummarySteps" />
+        app:layout_constraintTop_toBottomOf="@+id/tvHours" />
 
     <Button
         android:id="@+id/btnShowSummary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="89dp"
+        android:layout_height="48dp"
         android:background="#B3E5FC"
         android:onClick="doSummary"
         android:shadowColor="#000000"
         android:text="Show Summary"
-        app:layout_constraintBottom_toTopOf="@+id/btnReset"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStop" />
-
-    <Button
-        android:id="@+id/btnStop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#FF0000"
-        android:onClick="doStop"
-        android:text="Stop"
-        app:layout_constraintBottom_toTopOf="@+id/btnShowSummary"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnReset"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnStart" />
@@ -74,8 +74,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnShowSummary" />
+        app:layout_constraintStart_toEndOf="@+id/btnShowSummary"
+        app:layout_constraintTop_toBottomOf="@+id/btnStop" />
+
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF0000"
+        android:onClick="doStop"
+        android:text="Stop"
+        app:layout_constraintBottom_toTopOf="@+id/btnReset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnStart"
+        app:layout_constraintTop_toBottomOf="@+id/tvSeconds" />
 
     <TextView
 
@@ -96,7 +109,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvMins" />
+        app:layout_constraintTop_toTopOf="@+id/tvMins"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/tvSeconds"
@@ -134,7 +148,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvHoursLabel"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.16" />
+        app:layout_constraintVertical_bias="0.367" />
 
     <TextView
         android:id="@+id/tvHoursLabel"
@@ -156,11 +170,11 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#9C27B0"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnStart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMins" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnStop"
+        app:layout_constraintStart_toEndOf="@+id/btnStart"
+        app:layout_constraintTop_toBottomOf="@+id/tvMins"
+        app:layout_constraintVertical_bias="0.25" />
 
     <TextView
         android:id="@+id/tvSecsLabel"
@@ -168,11 +182,11 @@
         android:layout_height="wrap_content"
         android:background="#8BC34A"
         android:text="Seconds"
-        app:layout_constraintBottom_toBottomOf="@+id/tvMins"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSeconds"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvSeconds"
-        app:layout_constraintTop_toTopOf="@+id/tvMins" />
+        app:layout_constraintTop_toTopOf="@+id/tvSeconds" />
 
     <TextView
         android:id="@+id/tvMinutesLabel"
@@ -185,18 +199,5 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvMins"
         app:layout_constraintTop_toTopOf="@+id/tvMins" />
-
-    <TextView
-        android:id="@+id/tvLabelSteps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#9FA8DA"
-        android:text="Steps : "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvSummarySteps"
-        app:layout_constraintHorizontal_bias="0.884"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.33" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
